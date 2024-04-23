@@ -1,4 +1,3 @@
-game:GetService("RunService"):Set3dRenderingEnabled(true)
 getgenv()._SETTINGS_ = {
     _HOST_ = "ztdoor",         --// UserID or Username.
     _FPS_ = "5",                 --// FPS Limit on alts.
@@ -50,3 +49,4 @@ local core = game.CoreGui
 local IKU = core:WaitForChild('IKU')
 
 if IKU then IKU:Destroy() end
+game:GetService("RunService"):Set3dRenderingEnabled(true)
