@@ -49,4 +49,139 @@ local core = game.CoreGui
 local IKU = core:WaitForChild('IKU')
 
 if IKU then IKU:Destroy() end
+wait(5)
 game:GetService("RunService"):Set3dRenderingEnabled(true)
+wait(5)
+--addons -- 
+local decalsyeeted = true -- Leaving this on makes games look shitty but the fps goes up by at least 20.
+local g = game
+local w = g.Workspace
+local l = g.Lighting
+local t = w.Terrain
+t.WaterWaveSize = 0
+t.WaterWaveSpeed = 0
+t.WaterReflectance = 0
+t.WaterTransparency = 0
+l.GlobalShadows = false
+l.FogEnd = 9e9
+l.Brightness = 0
+local existingSettings = getgenv().settings
+
+-- Check if the settings table exists and has a Rendering sub-table
+if existingSettings and type(existingSettings) == "table" and existingSettings.Rendering then
+    existingSettings.Rendering.QualityLevel = 1
+end
+for i, v in pairs(g:GetDescendants()) do
+    if v:IsA("Part") or v:IsA("Union") or v:IsA("CornerWedgePart") or v:IsA("TrussPart") then
+        v.Material = "Plastic"
+        v.Reflectance = 0
+    elseif v:IsA("Decal") or v:IsA("Texture") and decalsyeeted then
+        v.Transparency = 1
+    elseif v:IsA("ParticleEmitter") or v:IsA("Trail") then
+        v.Lifetime = NumberRange.new(0)
+    elseif v:IsA("Explosion") then
+        v.BlastPressure = 1
+        v.BlastRadius = 1
+    elseif v:IsA("Fire") or v:IsA("SpotLight") or v:IsA("Smoke") or v:IsA("Sparkles") then
+        v.Enabled = false
+    elseif v:IsA("MeshPart") then
+        v.Material = "Plastic"
+        v.Reflectance = 0
+        v.TextureID = 10385902758728957
+    end
+end
+for i, e in pairs(l:GetChildren()) do
+    if e:IsA("BlurEffect") or e:IsA("SunRaysEffect") or e:IsA("ColorCorrectionEffect") or e:IsA("BloomEffect") or e:IsA("DepthOfFieldEffect") then
+        e.Enabled = false
+    end
+end
+-- more addons --
+-- doom#1000
+-- dahood ultra optimization script
+-- not meant to be used for casual play
+
+--> checks if the game is already optimized, returns if true
+if _G.OPTIMIZED_GRAPHICS then return warn('ALREADY OPTIMIZED; RETURNING...') end
+warn('attempting to optimize')
+
+--> deletes unecessary assets in workspace
+workspace.Lights:Destroy()
+workspace.Vehicles:Destroy()
+workspace.VehicleSpawner:Destroy()
+workspace.Bush:Destroy()
+workspace.FireParts:Destroy()
+workspace.MAP.Graffiti:Destroy()
+workspace.MAP.Map["Game-Houses"]:Destroy()
+workspace.MAP.Map["Punching(BAGS)"]:Destroy()
+workspace.MAP.Map.Props:Destroy()
+workspace.MAP["Fences/UF"]:Destroy()
+workspace.MAP.FireTruck:Destroy()
+workspace.MAP.EVIL_SPECIAL:Destroy()
+workspace.MAP.EVIL_SPECIALx:Destroy()
+workspace.MAP.SPECIAL_BRIDGE:Destroy()
+workspace.MAP.BullCarnival:Destroy()
+
+--
+for _,x in ipairs(game:GetDescendants()) do if x.Name == 'Meshes/mountain' then x:Destroy() end end
+for _,x in ipairs(workspace.Ignored:GetChildren()) do if x.Name == 'HouseOwn' or x.Name == 'Folder' or x.Name == 'HouseItemSale' or x.Name == 'ItemsDrop' then x:Destroy() end end
+for _,x in ipairs(workspace.MAP.Map:GetChildren()) do if x.ClassName == 'Model' then x:Destroy() end end
+for _,x in ipairs(workspace.MAP.Indestructible:GetChildren()) do if x.ClassName == 'Model' then x:Destroy() end end
+for _,x in ipairs(workspace:GetDescendants()) do if x.Name == 'print' then x:Destroy() end end
+for _,x in ipairs(workspace:GetDescendants()) do if x.Name == 'Image Ad Unit 2' then x:Destroy() end end
+for _,x in ipairs(workspace:GetDescendants()) do if x:IsA('Accessory') then x:Destroy() end end
+for _,x in ipairs(workspace:GetDescendants()) do if x:IsA('Decal') then x:Destroy() end end
+for _,x in ipairs(workspace:GetDescendants()) do if x:IsA('ShirtGraphic') then x:Destroy() end end
+for _,x in ipairs(workspace:GetDescendants()) do if x:IsA('Shirt') then x:Destroy() end end
+for _,x in ipairs(workspace:GetDescendants()) do if x:IsA('Pants') then x:Destroy() end end
+for _,x in ipairs(workspace:GetDescendants()) do if x:IsA('Seat') then x:Destroy() end end
+for _,x in ipairs(workspace:GetDescendants()) do if x:IsA('VehicleSeat') then x:Destroy() end end
+for _,x in ipairs(workspace:GetDescendants()) do if x:IsA('SpecialMesh') then x:Destroy() end end
+
+--
+local Terrain = workspace:FindFirstChildOfClass('Terrain')
+Terrain.WaterWaveSize = 0
+Terrain.WaterWaveSpeed = 0
+Terrain.WaterReflectance = 0
+Terrain.WaterTransparency = 0
+game.Lighting.GlobalShadows = false
+game.Lighting.FogEnd = 9e9
+settings().Rendering.QualityLevel = 1
+for i,v in pairs(game:GetDescendants()) do
+    if v:IsA("Part") or v:IsA("UnionOperation") or v:IsA("MeshPart") or v:IsA("CornerWedgePart") or v:IsA("WedgePart") or v:IsA("TrussPart") then
+        v.Material = "Plastic"
+        v.Reflectance = 0
+    elseif v:IsA("Decal") then
+        v.Transparency = 1
+    elseif v:IsA("ParticleEmitter") or v:IsA("Trail") then
+        v.Lifetime = NumberRange.new(0)
+    elseif v:IsA("Explosion") then
+        v.BlastPressure = 1
+        v.BlastRadius = 1
+    end
+end
+for i,v in pairs(game.Lighting:GetDescendants()) do
+    if v:IsA("BlurEffect") or v:IsA("SunRaysEffect") or v:IsA("ColorCorrectionEffect") or v:IsA("BloomEffect") or v:IsA("DepthOfFieldEffect") then
+        v.Enabled = false
+    end
+end
+
+--> removes all types of particles
+workspace.DescendantAdded:Connect(function(child)
+    task.spawn(function()
+        if child:IsA('ForceField') then
+            game.RunService.Heartbeat:Wait()
+            child:Destroy()
+        elseif child:IsA('Sparkles') then
+            game.RunService.Heartbeat:Wait()
+            child:Destroy()
+        elseif child:IsA('Smoke') or child:IsA('Fire') then
+            game.RunService.Heartbeat:Wait()
+            child:Destroy()
+        end
+    end)
+end)
+
+--> marks game as optimized
+_G.OPTIMIZED_GRAPHICS = true
+warn('> sucessfully optimized')
+-- thxs @<725577681273356299>, @<1154246222173970492>
