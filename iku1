@@ -16,7 +16,7 @@ getgenv().Settings = {
         ["Default Advert"] = ".gg/quickcash", -- The default advertisement message the alts will say when doing /advert on
         ["Command Feedback"] = false, -- Make the alts send messages after they receive commands (true/false)
         ["Delete Map"] = true, -- Deletes whole map on alts, possibly saves cpu/ram (true/false)
-        ["Rendering"] = false,
+        ["Rendering"] = true,
         
         ["FPS"] = 5, -- The FPS for the alt accounts
         ["IDs"] = { -- Userids of alt accounts
