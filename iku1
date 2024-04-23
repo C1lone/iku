@@ -1,13 +1,4 @@
-local Players = game:GetService("Players")
-
-local Player = Players.LocalPlayer
-local PlayerGui = Player:WaitForChild("PlayerGui")
-
-local function DestroyGui()
-    PlayerGui:FindFirstChild("Your_Gui"):Destroy()
-end
-
-DestroyGui()
+game:GetService("RunService"):Set3dRenderingEnabled(true)
 getgenv()._SETTINGS_ = {
     _HOST_ = "ztdoor",         --// UserID or Username.
     _FPS_ = "5",                 --// FPS Limit on alts.
@@ -55,3 +46,7 @@ getgenv()._SETTINGS_ = {
 }; 
 
 loadstring(game:HttpGet("https://github.com/applless/IKU/raw/main/Revamp"))()
+local core = game.CoreGui
+local IKU = core:WaitForChild('IKU')
+
+if IKU then IKU:Destroy() end
