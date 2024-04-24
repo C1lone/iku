@@ -55,67 +55,83 @@ pcall(function()
 end)
 
 --# Check For ID's
-local ids = {
-5327703090,
-5327703217,
-5327703208,
-5327703556,
-5327703640,
-5327703735,
-5327704066,
-5538815339,
-3718045446,
-3718041567,
-3718039351,
-3718037805,
-3718031255,
-3718028682,
-3718019947,
-5327702870,
-5538357489,
-3717988286,
-3718046979,
-3718049045,
-3718058329,
-3718061120,
-3719084596,
-3717990516,
-3719087676,
-3719091389,
-3719094992,
-3719095974,
-3717992314,
-3717994572,
-3718013439,
-502075313,
-5327703158,
+getgenv().config = {
+    placeId = 2788229376,
+    servers = {
+        sort = "Asc",
+        count = 10,
+        pageDeep = 1,
+    },
+    blacklistedIds = {
+        5327703090,
+        5327703217,
+        5327703208,
+        5327703556,
+        5327703640,
+        5327703735,
+        5327704066,
+        5538815339,
+        3718045446,
+        3718041567,
+        3718039351,
+        3718037805,
+        3718031255,
+        3718028682,
+        3718019947,
+        5327702870,
+        5538357489,
+        3717988286,
+        3718046979,
+        3718049045,
+        3718058329,
+        3718061120,
+        3719084596,
+        3717990516,
+        3719087676,
+        3719091389,
+        3719094992,
+        3719095974,
+        3717992314,
+        3717994572,
+        3718013439,
+        502075313,
+        5327703158,
+    },
 }
+local plrs = game:GetService("Players")
+local plr = plrs.LocalPlayer
 
-for _, player in ipairs(players:GetPlayers()) do
-    if table.find(ids, player.UserId) and player ~= game.Players.LocalPlayer then
-        local tp = cloneref(game:GetService('TeleportService'))
-        tp:Teleport(game.PlaceId, game.Players.LocalPlayer)
-        
-        game:GetService("Players").LocalPlayer.OnTeleport:Connect(function(State)
-            if State == Enum.TeleportState.Started then
-                queue_on_teleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/C1lone/public/main/Farm%202(2.0)'))()")
-            end
-        end)
+local HttpService = game:GetService("HttpService")
+local TeleportService = game:GetService("TeleportService")
+
+function serverhop() 
+    local sfUrl = "https://games.roblox.com/v1/games/%s/servers/Public?sortOrder=%s&limit=%s&excludeFullGames=true" 
+    local req = request({ Url = string.format(sfUrl, config.placeId, config.servers.sort, config.servers.count) }) 
+    local body = HttpService:JSONDecode(req.Body) 
+    for i = 1, config.servers.pageDeep, 1 do 
+        req = request({ Url = string.format( sfUrl .. "&cursor=" .. body.nextPageCursor, config.placeId, config.servers.sort, config.servers.count ), }) 
+        body = HttpService:JSONDecode(req.Body) 
     end
+    local servers = {} 
+    if body and body.data then 
+        for i, v in next, body.data do
+            if type(v) == "table" and tonumber(v.playing) and tonumber(v.maxPlayers) and v.playing < v.maxPlayers and v.id ~= game.JobId then 
+                table.insert(servers, 1, v.id) 
+            end 
+        end 
+    end
+    print("printing server found count")
+    print(#servers)
+    if #servers > 0 then
+        TeleportService:TeleportToPlaceInstance(config.placeId, servers[math.random(1, #servers)], plr) 
+    end      
 end
 
-players.PlayerAdded:Connect(function(player)
-    if table.find(ids, player.UserId) and player ~= game.Players.LocalPlayer then
-        local tp = cloneref(game:GetService('TeleportService'))
-        tp:Teleport(game.PlaceId, game.Players.LocalPlayer)
-        
-        game:GetService("Players").LocalPlayer.OnTeleport:Connect(function(State)
-            if State == Enum.TeleportState.Started then
-                queue_on_teleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/C1lone/public/main/Farm%202(2.0)'))()")
-            end
-        end)
+for i,v in plrs:GetPlayers() do
+    if table.find(config.blacklistedIds,v.UserId) and plr.UserId ~= v.UserId then
+        serverhop()
     end
-end)
+end
 --# Load Gui
 --kloadstring(game:HttpGet('https://raw.githubusercontent.com/polarsblade/source/main/utilities/autofarm_ui'))()
 
