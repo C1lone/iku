@@ -1,44 +1,30 @@
-_G.host_control = {
-    host = 'ztdoor',
-    prefix = ';',
-    setframecap = 5,
-    playereachrow = 8,
-    rows = 4,
-    userids = {
-        5327703640,
-        5327703556,
-        5327703208,
-        5327703217,
-        5327703090,
-        5327703735,
-        5327704066,
-        5538815339,
-        3718045446,
-        3718041567,
-        3718039351,
-        3718037805,
-        3718031255,
-        3718028682,
-        3718019947,
-        5327702870,
-        5538357489,
-        3717988286,
-        3718046979,
-        3718049045,
-        3718058329,
-        3718061120,
-        3719084596,
-        3717990516,
-        3719087676,
-        3719091389,
-        3719094992,
-        3719095974,
-        3717992314,
-        3717994572,
-        3718013439,
-        502075313,
-        5327703158,
-    },
+script_key="QOXYakJjSBSMLGdAeSngajmbuBSNIfPV";
+
+_G.configurations = {
+    status = true, -- Toggle Farm
+    webhook = '', -- Does Nothing Just Yet
+    spinspeed = 3, -- Spin Speed ( Recommended : 3 )
+    pickupdelay = 0.7, -- Pickup Delay
+    furtherdelay = 0.25, -- Further Pickup Delay ( pickupdelay + furtherdelay to prevent kicks)
+    mask = true, -- Auto Mask
+    unjail = true, -- Auto Unjail
+    autobox = true, -- Auto Box ( Automatically Boxes -> Equips Boxing Moveset -> Farms )
+    hospitalwhenidle = true, -- Farms Hospital When Idle ( No ATMS )
+    shoeswhenidle = true, -- Farms Shoes When Idle ( No ATMS)
+    serverhop = {
+        timer = { -- Will Serverhop After The Given Time
+            usetimer = false,
+            seconds = 60
+        },
+        hopifjoined = true, -- Will Serverhop If Player Under The joinedids Joins.
+        joinedids = {
+
+        },
+        hoponjoined = true, -- Will Serverhop If Player Under ids Is Already In The Server.
+        ids = {
+
+        }
+    }
 }
 
-loadstring(game:HttpGet('https://raw.githubusercontent.com/polarsblade/hostautofarm/main/control'))()
+loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/7c4e2dc9658d3af80fd0e0d1cd03f3d3.lua"))()
