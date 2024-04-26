@@ -1,11 +1,11 @@
 _G.host_control = {
-    host = 'alexkk610',
-    prefix = ':',
-    setframecap = 15,
-    playereachrow = 5,
+    host = 'ztdoor',
+    prefix = ';',
+    setframecap = 5,
+    playereachrow = 6,
     rows = 5,
     userids = {
-        -- put ur id here
+        3718049045,
     },
 }
 
