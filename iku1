@@ -1,54 +1,12 @@
-_G.configurations = {
-    status = true,
-    webhook = '',
-    spinspeed = 3,
-    pickupdelay = 0.8,
-    furtherdelay = 0.25,
-    mask = true,
-    unjail = true,
-    autobox = true,
-    serverhop = {
-        hopifjoined = true,
-        joinedids = {
-
-        },
-        hoponjoined = true,
-        ids = {
-            5327703090,
-            5327703217,
-            5327703208,
-            5327703556,
-            5327703640,
-            5327703735,
-            5327704066,
-            5538815339,
-            3718045446,
-            3718041567,
-            3718039351,
-            3718037805,
-            3718031255,
-            3718028682,
-            3718019947,
-            5327702870,
-            5538357489,
-            3717988286,
-            3718046979,
-            3718049045,
-            3718058329,
-            3718061120,
-            3719084596,
-            3717990516,
-            3719087676,
-            3719091389,
-            3719094992,
-            3719095974,
-            3717992314,
-            3717994572,
-            3718013439,
-            502075313,
-            5327703158,
-        }
-    }
+_G.host_control = {
+    host = 'alexkk610',
+    prefix = ':',
+    setframecap = 15,
+    playereachrow = 5,
+    rows = 5,
+    userids = {
+        -- put ur id here
+    },
 }
 
-loadstring(game:HttpGet('https://raw.githubusercontent.com/polarsblade/hostautofarm/main/script'))()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/polarsblade/hostautofarm/main/control'))()
