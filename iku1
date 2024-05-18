@@ -38,8 +38,8 @@ getgenv().alts = {
     5327703158,
 }
 
-local server1 = "ip:5000"
-local server2 = "ip:6000"
+local server1 = "10.0.0.70:5000"
+local server2 = "10.0.0.70:6000"
 local Workspace = game:GetService('Workspace')
 local Lighting = game:GetService('Lighting')
 local Players = game:GetService('Players')
