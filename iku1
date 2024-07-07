@@ -8,7 +8,7 @@ _G.configuration = {
         gui = true, -- cool gui with stats
     },
     cash = {
-        pickup = 0.7, -- pickup delay
+        pickup = 0.8, -- pickup delay
         distancepickup = 0.25, -- pickup delay + this when cash is too far (prevents kicking)
     },
     farming = {
@@ -44,7 +44,7 @@ _G.configuration = {
         },
     },
     webhook = {
-        link = "https://discord.com/api/webhooks/1255039167898058824/dZ4NgvwlbzWJefYiv_aHrDiBuQib9Rla-QztgtZ3LtLRGSArcDtYQRN0hXkkFklqH4vG", -- webhook link
+        link = "https://discord.com/api/webhooks/1255039167898058824/dZ4NgvwlbzWJefYiv_aHrDiBuQib9Rla-QztgtZ3LtLRGSArcDtYQRN0hXkkFklqH4vG",
         interval = 900, -- sends webhook after (seconds) passes
     },
 }
