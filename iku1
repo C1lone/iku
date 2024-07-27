@@ -1,7 +1,7 @@
 script_key="eUraNvHbAebzfvEIWPQGOZrGVJAlPeSC";
 getgenv().config = {
     mode = 1, -- 1 is super punch / box, 2 is normal punch
-    fps = 8,
+    fps = 15,
     checkPlayersNearby = false,
     gui = false, -- will display gui with earned cash
     webhook = {
