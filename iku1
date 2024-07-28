@@ -3,7 +3,7 @@ script_key="evFVJygmuzBOMwUUiLiznAnhksrKaCNV"
 _G.configuration = {
     behavior = {
         fps = 8, -- frame limit (lower results in less cpu usage but can affect cash being made)
-        rendering = false, -- disables / enables rendering (true by default because of memory leaks)
+        rendering = true, -- disables / enables rendering (true by default because of memory leaks)
         optimize = true, -- helps lower usage overall
         gui = true, -- cool gui with stats
     },
