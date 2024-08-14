@@ -38,13 +38,11 @@ Player.CharacterAdded:Connect(function()
     task.wait(3)
     StartFarm()
 end)
---> delete seat
-for _, part in ipairs(workspace:GetDescendants()) do
-    if part:IsA("Seat") then
-        part:Destroy()
-    end
-end
+
 --> Start loop
+StartFarm()
+
+task.spawn(function()
 _G.running = true
 while task.wait() do
     if _G.running then
@@ -52,3 +50,4 @@ while task.wait() do
         FirePrompt(LavaPrompt) 
     end
 end
+end)
