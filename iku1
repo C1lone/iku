@@ -3,7 +3,7 @@ script_key="evFVJygmuzBOMwUUiLiznAnhksrKaCNV"
 _G.polarsblade = {
     client = {
         fps = 8,
-        rendering = true,
+        rendering = false,
         gui = true,
     },
     items = {
