@@ -47,6 +47,8 @@ _G.configuration = {
             3717992314,
             3718046979,
             502075313,
+            5706055006,
+            5710261741,
         },
         fillgaps = true, -- fills gap for missing accounts
         advertise = "/QuickCash", -- advertise message
