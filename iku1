@@ -49,4 +49,4 @@ _G.configuration = {
     },
 }
 
-loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/9c53b857c733320e64332c171f813e50.lua"))()
+loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/2498a9d1e644af0aae3d0fe2e277dd75.lua"))()
