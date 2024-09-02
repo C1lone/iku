@@ -1,35 +1,84 @@
 script_key="evFVJygmuzBOMwUUiLiznAnhksrKaCNV"
 
-_G.polarsblade = {
-    client = {
-        fps = 8,
-        rendering = true,
-        gui = false,
+_G.configuration = {
+    host = {"armeager"}, -- only usernames
+    prefix = "/", -- prefix for commands
+    framelimit = 8, -- frame limit
+    ui = true, -- places a ui on the screen displaying the accounts cash
+    setups = {
+        ['bank'] = 'https://raw.githubusercontent.com/polarsblade/setups/main/bank',
+        ['club'] = 'https://raw.githubusercontent.com/polarsblade/setups/main/club',
+        ['bank2'] = 'https://raw.githubusercontent.com/polarsblade/setups/main/bank2',
+        ['train'] = 'https://raw.githubusercontent.com/polarsblade/setups/main/train',
     },
-    items = {
-        mask = true,
-        unjail = true,
-    },
-    server = {
-        handlekicks = false,
-        serverhoponknock = false,
-        serverhoponnoregisters = false,
-        
-        otheraccounts = {
-            switch = false,
-            ids = {
-
-            }
+    accounts = {
+        ids = { -- ids only
+            5546327559,
+            5546331162,
+            5546334684,
+            5546339603,
+            5546352150,
+            5546367498,
+            5546369864,
+            5546398854,
+            5546439828,
+            5546452417,
+            5543195923,
+            5543197018,
+            5543198096,
+            5543199028,
+            5543199906,
+            5546186270,
+            5546189243,
+            3718049045,
+            3718058329,
+            3718031255,
+            3718019947,
+            3718039351,
+            3718028682,
+            3718041567,
+            3718045446,
+            3718061120,
+            3719084596,
+            3717990516,
+            3719087676,
+            3719094992,
+            3719095974,
+            3717992314,
+            3718046979,
+            502075313,
+            5706055006,
+            5710261741,
+        },
+        fillgaps = true, -- fills gap for missing accounts
+        advertise = "/QuickCash", -- advertise message
+        cdropcovertax = true, -- cover tax for cdrop
+        responses = { -- responses for commands
+            toggle = true, -- toggle
+            ["random"] = "randomize complete",
+            ["fps"] = "fps set",
+            ["redeemcode"] = "code redeemed",
+            ["drop"] = {
+                "drop enabled", -- drop when toggled on
+                "drop disabled" -- drop when toggled off
+            },
+            ["wallet"] = {
+                "wallet equipped", -- wallets when equipped
+                "wallet unequipped" -- wallets when unequipped
+            },
+            ["setup"] = "setup complete",
+            ["circle"] = "circle formation complete",
+            ["setposition"] = "position set",
+            ["cdrop"] = {
+                "dropping amount", -- cdrop when enabled
+                "ended drop", -- cdrop when disabled
+            },
+            ["line"] = "lined up",
+            ["unarrest"] = "unarrested",
+            ["block"] = "blocking",
+            ["unblock"] = "unblocking",
         }
-    },
-    otherfarmers = {
-        killfarmers = false,
-        jumpatms = false,
-    },
-    webhook = {
-        switch = false,
-        link = "",
-    },
+    }
 }
 
-loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/dcba12602570f5a1c36c86252d5f78c9.lua"))()
+loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/b50c882012e456f4c3a7216111d2f05d.lua"))()
